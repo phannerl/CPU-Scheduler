@@ -1,0 +1,49 @@
+# Project: OSProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Define.o Main.o Output.o Process.o Process_FIFO.o Process_Priority.o Process_RR.o Process_SJF.o
+LINKOBJ  = Define.o Main.o Output.o Process.o Process_FIFO.o Process_Priority.o Process_RR.o Process_SJF.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = OSProject.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Define.o: Define.cpp
+	$(CPP) -c Define.cpp -o Define.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
+
+Output.o: Output.cpp
+	$(CPP) -c Output.cpp -o Output.o $(CXXFLAGS)
+
+Process.o: Process.cpp
+	$(CPP) -c Process.cpp -o Process.o $(CXXFLAGS)
+
+Process_FIFO.o: Process_FIFO.cpp
+	$(CPP) -c Process_FIFO.cpp -o Process_FIFO.o $(CXXFLAGS)
+
+Process_Priority.o: Process_Priority.cpp
+	$(CPP) -c Process_Priority.cpp -o Process_Priority.o $(CXXFLAGS)
+
+Process_RR.o: Process_RR.cpp
+	$(CPP) -c Process_RR.cpp -o Process_RR.o $(CXXFLAGS)
+
+Process_SJF.o: Process_SJF.cpp
+	$(CPP) -c Process_SJF.cpp -o Process_SJF.o $(CXXFLAGS)

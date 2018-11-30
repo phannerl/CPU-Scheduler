@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <cstdio>
-#include <fstream>
 #include <iostream>
 #include <iomanip>
 #include <queue>
@@ -9,23 +6,21 @@
 #include "Output.h"
 #include "Process.h"
 
-#define INP "input.txt"
-
 using namespace std;
 
 void INPUT(ListP &pr, int &n, int &timeOUT, int quantum) {
-	cout << endl << "---------------INPUT---------------" << endl << endl;
-	cout << "Name" << setw(10) << "TimeRL" << setw(10) << "TimeCPU" << setw(10)
+	cout << endl << "| ------------------------------INPUT------------------------------" << endl << "| " << endl;
+	cout << "| Name" << setw(10) << "TimeRL" << setw(10) << "TimeCPU" << setw(10)
 			<< "Priority" << endl;
 	for (int i = 0; i < n; i++)
-		cout << pr[i].name << setw(10) << pr[i].timeRL << setw(10)
+		cout << "| " << pr[i].name << setw(10) << pr[i].timeRL << setw(10)
 				<< pr[i].timeCPU << setw(10) << pr[i].priority << endl;
-	cout << "quantum = " << quantum << endl;
-	cout << endl << "---------------OPTION---------------" << endl << endl;
-	cout << "Nhan 1 de thuc hien thuat toan FIFO!\nNhan 2 de thuc hien thuat toan RR!\n" 
-	<< "Nhan 3 de thuc hien thuat toan Priority preemptive!\nNhan 4 de thuc hien thuat toan Priority non-preemptive!\n"
-	<< "Nhan 5 de thuc hien thuat toan SJF non-preemptive!\nNhan 6 de thuc hien thuat toan SJF preemptive!\n" 
-	<< "Nhan 7 de thuc hien tat ca thuat toan\nNhan 8 de ket thuc chuong trinh\n";
+	cout << "| Quantum = " << quantum << endl;
+	cout << endl << "| -----------------------------OPTION------------------------------" << endl << endl;
+	cout << "| Nhan 1 de thuc hien thuat toan FIFO!\n| Nhan 2 de thuc hien thuat toan RR!\n" 
+	<< "| Nhan 3 de thuc hien thuat toan Priority preemptive!\n| Nhan 4 de thuc hien thuat toan Priority non-preemptive!\n"
+	<< "| Nhan 5 de thuc hien thuat toan SJF non-preemptive!\n| Nhan 6 de thuc hien thuat toan SJF preemptive!\n" 
+	<< "| Nhan 7 de in ra AWT cuar tat ca cac thuat toan\n| Nhan 8 de ket thuc chuong trinh\n";
 }
 
 void OUTPUT(ListP pr, ListP RL, int n, int m, int timeOUT, int select) {
@@ -49,7 +44,7 @@ void OUTPUT(ListP pr, ListP RL, int n, int m, int timeOUT, int select) {
 		output_SJF_preemptive(pr, RL, n, m, timeOUT);
 		break;
 	}
-	cout << endl << "-----------------END-----------------" << endl << endl;
+	cout << endl << "| -----------------------------------END------------------------------------ |" << endl << endl;
 }
 
 void PROCESS(ListP &pr, ListP &RL, int n, int &m, int timeOUT, int select, int quantum, int sum) {
